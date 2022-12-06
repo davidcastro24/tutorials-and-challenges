@@ -1,5 +1,6 @@
 package com.springmvc.demo.classes;
 
+import com.springmvc.demo.validations.PersonSubject;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
@@ -21,13 +22,14 @@ public class Person {
 
     @NotNull(message = "Required")
     @Range(min = 18, max = 99)
-    private Integer age;//for these cases use Integer, not int (will change later to number)
+    private Integer age;
 
     @NotBlank(message = "Required")
     private String country;
 
     @Length(max=150)
     @Pattern(regexp = "^[a-zA-z]+",message = "Must only contain letters")
+    @PersonSubject
     private String description;
 
     private String[] preferredOS;

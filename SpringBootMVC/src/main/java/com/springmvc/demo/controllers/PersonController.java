@@ -36,6 +36,7 @@ public class PersonController {
     public String processForm(@Valid @ModelAttribute("person") Person person,
                               BindingResult bindingResult,@ModelAttribute("dataForDisplayedLists") DataForDisplayedLists dataForDisplayedLists){
         System.out.println(person.toString());
+        System.out.println(bindingResult.toString());
         if (bindingResult.hasErrors())
             return "personUserForm";
         return "personConfirmation";
